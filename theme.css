@@ -2492,6 +2492,10 @@ video {
   --tw-gradient-to: #fffde7 var(--tw-gradient-to-position);
 }
 
+.to-green-50 {
+  --tw-gradient-to: #e8f5e9 var(--tw-gradient-to-position);
+}
+
 .bg-clip-border {
   background-clip: border-box;
 }

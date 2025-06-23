@@ -4,7 +4,7 @@
 
 [data-floating-ui-portal] {
   position: absolute !important;
-  z-index: 9999999 !important;
+  z-index: 0 !important;
 }
 
 

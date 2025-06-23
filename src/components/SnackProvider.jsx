@@ -50,11 +50,11 @@ export const SnackProvider = ({ children }) => {
   return (
     <SnackContext.Provider value={{ createSnack }}>
       {children}
-      <div>
+      <div style={{ position: 'fixed !important', zIndex: '99999999999 !important' }}>
         {snacks.map((snack) => (
           <div
             key={snack.id}
-            className={`${snack.visible ? 'opacity-100' : 'translate-y-10 opacity-0'} absolute bottom-4 left-4 z-50 flex items-center space-x-4 divide-x divide-slate-200 rounded-xl bg-white p-4 pr-5 text-slate-500 shadow transition-all duration-500 ease-in-out`}
+            className={`${snack.visible ? 'opacity-100' : 'translate-y-10 opacity-0'} absolute bottom-4 left-4 z-900 flex items-center space-x-4 divide-x divide-slate-200 rounded-xl bg-white p-4 pr-5 text-slate-500 shadow transition-all duration-500 ease-in-out`}
             role="alert"
           >
             {getVariantIcon(snack.variant)}

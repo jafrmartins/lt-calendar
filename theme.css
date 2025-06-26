@@ -3531,6 +3531,16 @@ select {
     min-width: 95vw;
     padding: 10px;
   }
+
+  .calendar-controls {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .calendar-menu {
+    min-width: 60vw;
+  }
 }
 
 .placeholder\:opacity-0::-moz-placeholder {
@@ -6250,6 +6260,10 @@ select {
   .md\:max-w-\[83\.333333\%\] {
     max-width: 83.333333%;
   }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
 }
 
 @media (min-width: 960px) {
@@ -6334,10 +6348,6 @@ select {
 
   .lg\:max-w-\[75\%\] {
     max-width: 75%;
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
   }
 
   .lg\:gap-6 {

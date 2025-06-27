@@ -223,7 +223,7 @@ export const Calendar = ({ ...props }) => {
               { todayEvents.map((ev, i) => {
 
 
-                return <CalendarEvent mobile={isSmallScreen} style={{width: '100%',}} draggable={true} onDragStart={(e) => { dragstartHandler(e) }} onClickDelete={() => { deleteEventCallback(ev)}} onClickEdit={() => updateEventCallback(ev)} key={i} index={i} datetime={ev.datetime.format("DD/MM/YYYY HH:ss")}>{ isSmallScreen ? <span style={{fontSize: '0.5rem'}}>{ev.datetime.format("HH:ss")}</span>: <>#{i+1} - {ev.datetime.format("DD/MM/YYYY HH:ss")}</>}</CalendarEvent>
+                return <CalendarEvent mobile={isSmallScreen} style={{width: '100%',}} draggable={true} onDragStart={(e) => { dragstartHandler(e) }} onClickDelete={() => { deleteEventCallback(ev)}} onClickEdit={() => updateEventCallback(ev)} key={i} index={i} datetime={ev.datetime.format("DD/MM/YYYY HH:ss")}>{ isSmallScreen ? <span style={{fontSize: '0.5rem'}}>{ev.datetime.format("HH:mm")}</span>: <>#{i+1} - {ev.datetime.format("DD/MM/YYYY HH:mm")}</>}</CalendarEvent>
                 
 
               })}
@@ -359,7 +359,7 @@ export const Calendar = ({ ...props }) => {
             <div style={{ position: 'absolute', zIndex: 9999998,  backgroundColor: 'transparent', opacity: 0.5, width: '100vw', height: '100vh', overflow: 'hidden'}} onClick={() => {setQ(''); setSearchResults([])}}></div>
             <List style={{ backgroundColor: '#fefefe', position: 'fixed', zIndex: 9999999, left: '55px', top: '100px', minWidth: 'calc(60vw - 25px)', maxHeight: '60vh', overflowY: 'auto'}}>{ searchResults.map((ev, i) => {
 
-              return <CalendarEvent mobile={isSmallScreen} variant={'search'} draggable={true} onDragStart={(e) => { dragstartHandler(e) }} onClickDelete={() => { deleteEventCallback(ev)}} onClickEdit={() => updateEventCallback(ev)} key={i} index={i} datetime={ev.datetime.format("DD/MM/YYYY HH:ss")}>{ isSmallScreen ? <>#{i+1} - {ev.datetime.format("DD/MM/YYYY HH:ss")}</>: <>#{i+1} - {ev.datetime.format("DD/MM/YYYY HH:ss")}</>}</CalendarEvent>
+              return <CalendarEvent mobile={isSmallScreen} variant={'search'} draggable={true} onDragStart={(e) => { dragstartHandler(e) }} onClickDelete={() => { deleteEventCallback(ev)}} onClickEdit={() => updateEventCallback(ev)} key={i} index={i} datetime={ev.datetime.format("DD/MM/YYYY HH:ss")}>{ isSmallScreen ? <>#{i+1} - {ev.datetime.format("DD/MM/YYYY HH:mm")}</>: <>#{i+1} - {ev.datetime.format("DD/MM/YYYY HH:mm")}</>}</CalendarEvent>
               
 
             

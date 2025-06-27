@@ -127,9 +127,11 @@ export const Calendar = ({ ...props }) => {
   useEffect(() => {
 
     setRenderCalendar(generateCalendar(events))
-    handleTodayClick()
+    if(year == new Date().getFullYear()) {
+      handleTodayClick()
+    }
 
-  }, [events])
+  }, [events, year])
 
   const updateEventCallback = (e) => {
     

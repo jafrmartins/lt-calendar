@@ -1,7 +1,8 @@
+import { getEnv } from "../libraries/Enviroment";
 import CalendarAPI from "./Calendar";
 
 const config = {
-    baseurl: "http://localhost:5000/server.php/api",
+    baseurl: getEnv('VITE_API_BASEURL'),
 };
 
 export const service = {

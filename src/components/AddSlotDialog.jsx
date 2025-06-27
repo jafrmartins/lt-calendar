@@ -11,7 +11,7 @@ import {
 import { Button } from "./Button";
 import { useSnack } from "./SnackProvider";
 import { Formik } from "formik";
-import { formatDatetime } from "../librarires/Date";
+import { formatDatetime } from "../libraries/Date";
  
 export function AddSlotDialog({ open, setOpen, date=[new Date().getDate(), new Date().getMonth(), new Date().getFullYear()]  }) {
 
@@ -78,50 +78,39 @@ export function AddSlotDialog({ open, setOpen, date=[new Date().getDate(), new D
                 <Typography color="gray" className="mt-1 font-normal">
                   Introduza os Detalhes da Slot
                 </Typography>
-                <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-                  <div className="mb-1 flex flex-col gap-6">
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                      Clínico
-                    </Typography>
+                <form style={{ width: '100%', display: 'flex', flexGrow: 1}} className="mt-8 mb-2 w-full">
+                  <div className="mb-1 flex flex-col gap-6 grow">
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
                       size="lg"
-                      placeholder="name@mail.com"
-                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
+                      name={'niclin'}
+                      value={values.niclin}
+                      label={'Nº do Clínico'}
+                      placeholder="Nº do Clínico"
+                      
                     />
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                      Data de Início
-                    </Typography>
                     <Input
+                      label={'Data de Início'}
+                      placeholder={'Data de Início'}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       size="lg"
                       type="datetime-local"
                       name={'startDateTime'}
-                      value={values.startDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]+1).toISOString())}
-                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
+                      value={values.startDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]))}
+                      
                     />
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                      Data de Fim
-                    </Typography>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      label={'Data de Fim'}
+                      placeholder={'Data de Fim'}
                       size="lg"
                       type="datetime-local"
                       name={'endDateTime'}
-                      value={values.endDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]+1).toISOString())}
-                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
+                      value={values.endDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]+1))}
+                      
                     />
                   </div>
                 </form>

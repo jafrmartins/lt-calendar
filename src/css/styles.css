@@ -4,7 +4,22 @@
 
 [data-floating-ui-portal] {
   position: absolute !important;
-  z-index: 0 !important;
+  z-index: 9999 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #cdcdcd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6c6868;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 
@@ -27,3 +42,33 @@ select {
     scrollbar-width: none;  /* Firefox */
   }
 }
+
+.calendar-menu {
+  min-width: 60vw;
+}
+
+@media (max-width: 640px) {
+  
+  .calendar-day {
+    width: 0rem;
+  }
+
+  .calendar-menu {
+    min-width: 95vw;
+    padding: 10px;
+  }
+
+  .calendar-controls {
+    min-width: 100%;
+  }
+
+}
+
+@media (min-width: 640px) {
+  
+  .calendar-menu {
+    min-width: 60vw;
+  }
+
+}
+

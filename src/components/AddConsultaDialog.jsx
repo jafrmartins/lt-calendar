@@ -11,9 +11,9 @@ import {
 import { Button } from "./Button";
 import { useSnack } from "./SnackProvider";
 import { Formik } from "formik";
-import { formatDatetime } from "../librarires/Date";
+import { formatDatetime } from "../libraries/Date";
  
-export function AddConsultaDialog({ open, setOpen, date=[new Date().getDate(), new Date().getMonth(), new Date().getFullYear()] }) {
+export function AddConsultaDialog({ open, setOpen, values, date=[new Date().getDate(), new Date().getMonth(), new Date().getFullYear()] }) {
 
   const { createSnack } = useSnack();
   const handleOpen = () => {
@@ -33,21 +33,15 @@ export function AddConsultaDialog({ open, setOpen, date=[new Date().getDate(), n
 
   useEffect(() => {
 
-  }, [date])
+  }, [date, values])
  
   return (
     <Formik
-      initialValues={{ date }}
+      initialValues={{...{ date, ...values } }}
       enableReinitialize={true}
       validate={values => {
         const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
+        
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
@@ -68,10 +62,9 @@ export function AddConsultaDialog({ open, setOpen, date=[new Date().getDate(), n
         /* and other goodies */
       }) => (
 
+
         <Dialog open={open} handler={handleOpen}>
 
-          {console.log(values, formatDatetime(new Date(values.date[2], values.date[1], values.date[0]).toISOString()))}
-          
           <DialogBody>
             
               <Card color="transparent" shadow={false}>
@@ -81,49 +74,36 @@ export function AddConsultaDialog({ open, setOpen, date=[new Date().getDate(), n
                 <Typography color="gray" className="mt-1 font-normal">
                   Introduza os Detalhes da Consulta
                 </Typography>
-                <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+                <form className="mt-8 mb-2">
                   <div className="mb-1 flex flex-col gap-6">
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                      Nº Cliente
-                    </Typography>
                     <Input
+                      label="Nº Cliente"
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      value={values.nic}
+                      name="nic"
                       size="lg"
-                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
+                      
                     />
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                      Data de Início
-                    </Typography>
                     <Input
+                      label="Data de Início"
                       onChange={handleChange}
                       onBlur={handleBlur}
                       size="lg"
                       type="datetime-local"
                       name={'startDateTime'}
-                      value={values.startDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]+1).toISOString())}
-                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
+                      value={values.startDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]))}
+                      
                     />
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                      Data de Fim
-                    </Typography>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
                       size="lg"
+                      label="Data de Fim"
                       type="datetime-local"
                       name={'endDateTime'}
-                      value={values.endDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]+1).toISOString())}
-                      className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
+                      value={values.endDateTime || formatDatetime(new Date(values.date[2], values.date[1], values.date[0]+1))}
+                      
                     />
                   </div>
                 </form>

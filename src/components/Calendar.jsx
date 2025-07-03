@@ -1,6 +1,3 @@
-
-import { Calendar } from '../../dist/assets/index-Cb996Nna'
-
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { CalendarEvent } from './CalendarEvent';
 import moment from 'moment'

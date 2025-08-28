@@ -15,6 +15,6 @@ export function CalendarEvent({ index, mobile, variant='calendar', onClickEdit, 
         </>
     ) 
 
-    return <Chip onClick={onClickEdit} className={`rounded-full whitespace-nowrap text-black w-full rounded-lg bg-gradient-to-r from-green-100 to-green-50  ${index > 0 ? 'mt-1' : ''}`} {...props} value={<div className="flex justify-between"><div>{children}</div><div>{actions}</div></div>}></Chip>
+    return <Chip onClick={onClickEdit} className={`rounded-full whitespace-nowrap text-black w-full rounded-lg bg-gradient-to-r from-primary-100 to-primary-50  ${index > 0 ? 'mt-1' : ''}`} {...props} value={<div className="flex justify-between"><div>{children}</div><div>{actions}</div></div>}></Chip>
 
 }

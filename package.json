@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build-tw": "tailwindcss -i ./src/css/styles.css -o ./public/theme.css --watch",
+    "build-tw": "tailwindcss -i ./src/css/styles.css -o ./public/theme.css",
     "build": "vite build",
     "push": "git add . && git commit -am 'fix' && git push",
-    "deploy-gp": "npm run build && rm -Rf ../gh-pages/* && cp -R dist/* ../gh-pages && cd ../gh-pages/ && git add . && git commit -am 'gh-pages' && git push && cd ../logitools-calendar",
     "lint": "eslint .",
     "preview": "vite preview"
   },

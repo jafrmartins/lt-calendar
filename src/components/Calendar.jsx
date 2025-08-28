@@ -214,7 +214,7 @@ export const Calendar = ({ ...props }) => {
               className={`calendar-day relative z-10 m-[-0.5px] group aspect-square w-full grow cursor-pointer rounded-xl border font-medium transition-all hover:z-20 hover:border-cyan-400 sm:-m-px sm:size-20 sm:rounded-2xl sm:border-2 lg:size-36 lg:rounded-3xl 2xl:size-40`}
 
             >
-              <span style={{ zIndex: 99999999}} className={`absolute left-1 top-1 flex size-5 items-center justify-center rounded-full text-xs sm:size-6 sm:text-sm lg:left-2 lg:top-2 lg:size-8 lg:text-base ${isToday ? 'bg-gradient-to-r from-green-100 to-green-50 ' : ''} ${month < 0 ? 'text-slate-400' : 'text-slate-800'}`}>
+              <span style={{ zIndex: 99999999}} className={`absolute left-1 top-1 flex size-5 items-center justify-center rounded-full text-xs sm:size-6 sm:text-sm lg:left-2 lg:top-2 lg:size-8 lg:text-base ${isToday ? 'bg-gradient-to-r from-primary-100 to-primary-50 ' : ''} ${month < 0 ? 'text-slate-400' : 'text-slate-800'}`}>
                 {day}
               </span>
               {isNewMonth && (
@@ -331,17 +331,17 @@ export const Calendar = ({ ...props }) => {
   return (
     <div className="no-scrollbar calendar-container max-h-full overflow-y-scroll rounded-t-2xl bg-white pb-10 text-slate-800" style={{ maxHeight: 'calc(100vh - 40px)'}}>
       <div className="sticky -top-px z-50 w-full rounded-t-2xl bg-white">
-        <div className="mb-4 flex w-full flex-wrap items-center md:justify-between lg:gap-6">
+        <div className={`mb-4 ${isSmallScreen ? '' : 'pl-2 pr-2'} flex w-full flex-wrap items-center md:justify-between lg:gap-6`}>
           <div className="calendar-menu flex items-start">
             <Menu open={openMenu} handler={setOpenMenu} style={{ position: 'absolute !important', display: 'flex', flexGrow: 1, width: '100%', minWidth: '100%', zIndex: '99999 !important', height: 'calc(100vh - 60px)'}}>
               <MenuHandler>
                 {<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                  {/*<IconButton className="flex flex-row items-center justify-center">
+                  {<IconButton className="flex flex-row items-center justify-center">
                     {<img src={ltLogo} style={{ height: '40px'}} />}
-                  </IconButton>*/}
-                  <IconButton style={{ height: '40px', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  </IconButton>}
+                  {/*<IconButton style={{ height: '40px', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <FaBars style={{ height: '20px', width: '20px'}} />
-                  </IconButton>
+                  </IconButton>*/}
                   
                 </div>}
               </MenuHandler>
